@@ -1,0 +1,5 @@
+class ClockUser < ApplicationRecord
+
+  
+
+end
