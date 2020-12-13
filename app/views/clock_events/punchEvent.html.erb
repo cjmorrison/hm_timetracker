@@ -1,0 +1,30 @@
+<% @page_title = "Welcome Employee" %>
+
+<script>
+  var current_time = setInterval(function(){system_time()},100);
+  function system_time()
+  {
+	var setDate = new Date()
+    document.getElementById("timeclock").innerHTML = setDate.toLocaleTimeString() ;
+  }
+</script>
+
+<div class= "Sign_Form">
+	<h1>Welcome Employee</h1>
+	<h2>The time is <span id="timeclock"></span> </h2>
+	<%= form_tag(:action => 'log_punch_event') do %>
+        <p>What event will you be posting? </p>
+
+		<select name="post[event_type]">
+			<option value="punch_in" selected="selected">Punch in</option>
+			<option value="punch_out" >Punch out</option>
+			<option value="break_15">15min Break</option>
+			<option value="break_30">30min Break</option>
+		</select>
+
+		
+		<%= submit_tag("Clock Time") %>
+
+				
+	<% end %>
+</div>

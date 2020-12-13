@@ -13,13 +13,23 @@
 ActiveRecord::Schema.define(version: 2020_12_12_024854) do
 
   create_table "clock_events", force: :cascade do |t|
+    t.string "occuranceTime"
+    t.string "eventType"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clock_users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "salt"
+    t.string "firstName"
+    t.string "lastName"
+    t.string "role"
+    t.integer "ClockEvent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ClockEvent_id"], name: "index_clock_users_on_ClockEvent_id"
   end
 
 end
